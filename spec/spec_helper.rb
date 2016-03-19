@@ -16,7 +16,9 @@ Sinatra::Base.set :run, false
 Sinatra::Base.set :raise_errors, true
 Sinatra::Base.set :logging, false
 
-Dir.glob(File.join(File.dirname(__FILE__), '../app', '{helpers,models,routes}', "*.rb")){ |file| require file}
+#Dir.glob(File.join(File.dirname(__FILE__), '../app', '{helpers,models,routes}', '*.rb')){ |file| require file }
+
+require File.expand_path('../app.rb', File.dirname(__FILE__))
 
 FactoryGirl.definition_file_paths = %w{./spec/factories}
 FactoryGirl.find_definitions
