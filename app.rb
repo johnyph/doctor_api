@@ -5,8 +5,6 @@ module Doctor
 		# Register sinatra_Active_record
 		register Sinatra::ActiveRecordExtension
     	
-		# Enable sessions
-    enable :sessions
 
     # Development configuration
     configure :development do
