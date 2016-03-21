@@ -7,7 +7,7 @@ require 'sinatra'
 require 'rspec'
 require 'rack/test'
 require 'factory_girl'
-#require 'factories'
+require 'database_cleaner'
 
 
 # set test environment
@@ -20,10 +20,24 @@ Sinatra::Base.set :logging, false
 
 require File.expand_path('../app.rb', File.dirname(__FILE__))
 
+require 'shoulda/matchers'
+
 FactoryGirl.definition_file_paths = %w{./spec/factories}
 FactoryGirl.find_definitions
 
 
 RSpec.configure do |config|
 	config.include FactoryGirl::Syntax::Methods		
+
+  config.before(:suite) do
+    DatabaseCleaner.strategy = :transaction
+    DatabaseCleaner.clean_with(:truncation)
+  end
+
+  config.around(:each) do |example|
+    DatabaseCleaner.cleaning do
+      example.run
+    end
+  end
 end
+

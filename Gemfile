@@ -9,8 +9,13 @@ gem 'sinatra-active-model-serializers'
 gem 'bcrypt'
 
 group :development, :test do
-  gem 'sqlite3'
   gem 'rspec'
 	gem 'rack-test'
-	gem 'factory_girl'
+	gem 'sqlite3'
+  gem 'database_cleaner'
+end
+
+group :test do
+  gem 'factory_girl'
+  gem 'shoulda-matchers', '2.8.0', require: false
 end
