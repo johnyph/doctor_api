@@ -13,7 +13,7 @@ module Doctor
     	set :database, {adapter: "sqlite3", database: "db/doctor.sqlite3"}
     end
 		
-		configure :testing do
+		configure :test do
     	set :database, {adapter: "sqlite3", database: "db/doctor.testing.sqlite3"}
     end
 	

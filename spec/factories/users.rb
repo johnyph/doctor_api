@@ -1,7 +1,9 @@
 FactoryGirl.define do
   factory :user, class: Doctor::User do
-  	name 'Ιωαννης-Ανδρεας Φίλιππας'
 		email 'iphilippas@gmail.com'
-		password 'qwerty'
+    first_name 'Ιωάννης-Ανδρέας'
+    last_name 'Φίλιππας'
+    vat 123456789
+		password_digest '2a$10$wJTPdvpGgzDvkXChrcPyqOQrFFawzGu89B1rZze/lVIcJKWiNeAqS' # secret
 	end
 end

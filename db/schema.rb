@@ -11,12 +11,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160318123834) do
+ActiveRecord::Schema.define(version: 20160321101305) do
+
+  create_table "access_tokens", force: :cascade do |t|
+    t.integer  "user_id"
+    t.string   "access_token"
+    t.datetime "expired_at"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "vat"
     t.string "email"
-    t.string "passwod_digest"
+    t.string "password_digest"
   end
 
 end
